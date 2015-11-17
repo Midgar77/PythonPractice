@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#Shows the different uses of functions and arguments.
+#Shows the different uses of functions and arguments. Many of the examples are grabbed off of TutorialsPoint for simplicity.
 
 
 
@@ -53,5 +53,33 @@ def printString(str):
 
 #Notice how str wasn't declared first and then passed when calling printString, rather we assign a value to the argument as it is passed
 printString(str = "Hello world!")
+
+
+# 3. Default arguments allow arguments to be set with default values if they are not passed
+
+#You can set a default value for an argument by giving it a value when defining it in the function definition (age = 35)
+def printinfo( name, age = 35 ):
+   print "Name: ", name
+   print "Age ", age
+   return;
+
+# Now you can call printinfo function
+printinfo( age=50, name="miki" ) #prints Name: miki Age: 50
+printinfo( name="miki" )   #prints Name: miki Age: 35
+
+
+# 4. Variable-length arguments solves the problem of needing to pass more arguments into a function than typically required.
+
+#arg1 is required, but *vartuple is a tuple of all the extra args. Placing a * in front of a variable name allows multiple args to be passed in as a tuple
+def printinfo( arg1, *vartuple ):
+   print "Output is: "
+   print arg1
+   for var in vartuple:
+      print var
+   return;
+
+# Now you can call printinfo function
+printinfo( 10 )   #passes in required arg
+printinfo( 70, 60, 50 ) #passes in required arg 70 and then passes in extra args 60 and 50 which are stored in vartuple
 
 
